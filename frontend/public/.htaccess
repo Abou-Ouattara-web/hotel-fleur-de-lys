@@ -1,0 +1,80 @@
+# =========================================================================
+# SÉCURITÉ DU DOSSIER
+# =========================================================================
+# Empêche la liste du répertoire web (Directory Listing)
+Options -Indexes
+
+# Cache l'identité exacte du serveur sur les pages d'erreur générées par Apache
+ServerSignature Off
+
+# =========================================================================
+# ROUTAGE PRINCIPAL MVC
+# =========================================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Si le fichier ou dossier existe, on le sert directement
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Sinon, on envoie tout à index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# =========================================================================
+# OPTIMISATIONS DES PERFORMANCES (COMPRESSION GZIP/BROTLI)
+# =========================================================================
+<IfModule mod_deflate.c>
+    # Force la compression pour accélérer le chargement (-70% de taille de transfert)
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    
+    # Exclut les anciens navigateurs problématiques
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# =========================================================================
+# SÉCURITÉ HTTP HEADERS
+# =========================================================================
+<IfModule mod_headers.c>
+    # Empêche le clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Empêche le sniffing de type MIME
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Force HTTPS sur les connexions futures (6 mois)
+    # Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains"
+
+    # Protection XSS basique pour les anciens navigateurs
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Contrôle des informations de référent
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Supprime la signature du serveur
+    Header unset X-Powered-By
+</IfModule>
+
+# =========================================================================
+# CACHE NAVIGATEUR (ETags)
+# =========================================================================
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js)$">
+        Header append Cache-Control "public"
+    </FilesMatch>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header append Cache-Control "public, immutable"
+    </FilesMatch>
+</IfModule>

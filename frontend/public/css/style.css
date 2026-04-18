@@ -1,0 +1,1676 @@
+/*
+  Ancien fichier global.
+  Le projet utilise maintenant :
+  - css/base.css (commun)
+  - css/pages/*.css (par page)
+
+  Ce fichier est conservé uniquement pour compatibilité/historique.
+*/
+
+/* Navigation */
+.header {
+    position: relative;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.85);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--gold);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--gold);
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-reserver {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.btn-reserver:hover {
+    background: var(--gold-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.menu-toggle {
+    display: none;
+    color: var(--gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background: var(--gold-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--white);
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-secondary:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* Section Title */
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gold);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Carousel Styles */
+.chambres {
+    padding: 5rem 0;
+    background: var(--white-off);
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    list-style: none;
+    gap: 20px;
+}
+
+.carousel-card {
+    min-width: calc(33.333% - 14px);
+    flex: 0 0 auto;
+}
+
+.room-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    position: relative;
+    height: 100%;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
+
+.room-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.room-badge.climatise {
+    background: var(--black);
+    color: var(--gold);
+}
+
+.room-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 1.5rem;
+}
+
+.room-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.room-desc {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.room-features {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.room-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.room-features i {
+    color: var(--gold);
+}
+
+.room-price {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.room-price span {
+    font-size: 0.9rem;
+    color: var(--gray);
+    font-weight: 400;
+}
+
+.btn-room {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-room:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    border: none;
+    border-radius: 50%;
+    color: var(--black);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--gold-dark);
+    color: var(--white);
+}
+
+.carousel-btn.prev {
+    left: 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+}
+
+/* Équipements Section */
+.equipements {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.equipements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.equipement-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.equipement-card.large {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.equipement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
+
+.equipement-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.equipement-card.large .equipement-img {
+    height: 350px;
+}
+
+.equipement-info {
+    padding: 2rem;
+    position: relative;
+}
+
+.equipement-icon {
+    position: absolute;
+    top: -25px;
+    left: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    font-size: 1.5rem;
+}
+
+.equipement-info h3 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 1rem;
+    color: var(--black);
+}
+
+.equipement-info p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.equipement-details {
+    list-style: none;
+}
+
+.equipement-details li {
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.equipement-details i {
+    color: var(--gold);
+}
+
+/* Restaurant Section */
+.restaurant {
+    padding: 5rem 0;
+    background: var(--black);
+    color: var(--white);
+}
+
+.restaurant-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.restaurant-text .section-title {
+    color: var(--white);
+    text-align: left;
+}
+
+.restaurant-text .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.restaurant-desc {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    color: var(--gray-light);
+}
+
+.restaurant-features {
+    margin: 2rem 0;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.feature i {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.restaurant-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.restaurant-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.restaurant-img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+    border-top: 3px solid var(--gold);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-col h4 {
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-col p {
+    margin-bottom: 0.5rem;
+    color: var(--gray-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-col p i {
+    color: var(--gold);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    color: var(--gray-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--gold);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--black-light);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--black-light);
+    color: var(--gray-light);
+}
+
+.credit {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Page Title */
+.page-title {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 50px;
+    text-align: center;
+    color: var(--white);
+}
+
+.page-title h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb {
+    color: var(--gray-light);
+}
+
+.breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* Reservation Page */
+.reservation-section {
+    padding: 5rem 0;
+    background: var(--white-off);
+}
+
+.reservation-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.reservation-form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--black);
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--black);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    accent-color: var(--gold);
+}
+
+.btn-submit {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.btn-submit:hover {
+    background: var(--gold-dark);
+    color: var(--white);
+}
+
+.reservation-info {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 110px;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.info-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.info-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray);
+}
+
+.info-list i {
+    color: var(--gold);
+}
+
+.contact-info {
+    background: var(--white-off);
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.contact-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    color: var(--gold);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    position: relative;
+}
+
+.payment-modal {
+    max-width: 500px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    line-height: 1;
+}
+
+.close:hover {
+    color: var(--gold);
+}
+
+.recap-reservation {
+    background: var(--white-off);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.payment-options {
+    margin-top: 2rem;
+}
+
+.payment-options h3 {
+    margin-bottom: 1rem;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.payment-method i.payment-logo {
+    width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.payment-method:hover {
+    border-color: var(--gold);
+    background: var(--white-off);
+}
+
+.payment-method.selected {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.payment-logo {
+    height: 30px;
+    width: auto;
+}
+
+.payment-form {
+    margin-top: 1rem;
+}
+
+.btn-payment {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-payment:hover {
+    background: var(--gold-dark);
+    color: var(--white);
+}
+
+/* Restaurant Page */
+.restaurant-hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.restaurant-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.restaurant-intro p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.menu-section {
+    padding: 4rem 0;
+    background: var(--white-off);
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid var(--gray-light);
+    color: var(--gray);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+.menu-carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.menu-track-container {
+    overflow: hidden;
+}
+
+.menu-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-card {
+    min-width: calc(33.333% - 14px);
+    flex: 0 0 auto;
+}
+
+.menu-item {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+.menu-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 1.5rem;
+}
+
+.menu-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.menu-desc {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.menu-price {
+    font-size: 1.3rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.restaurant-reservation {
+    padding: 4rem 0;
+}
+
+.reservation-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/restaurant-1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.reservation-banner h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.reservation-banner p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--gray-light);
+}
+
+/* Inscription Page */
+.inscription-section {
+    padding: 5rem 0;
+    background: var(--white-off);
+}
+
+.inscription-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.inscription-form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.inscription-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.inscription-subtitle {
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.inscription-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inscription-form small {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--gray);
+}
+
+.login-link a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.benefits-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.benefits-list {
+    list-style: none;
+}
+
+.benefits-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray);
+}
+
+.benefits-list i {
+    color: var(--gold);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .carousel-card {
+        min-width: calc(50% - 10px);
+    }
+    
+    .equipements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .equipement-card.large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-menu.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 2rem;
+    }
+    
+    .nav-menu.active ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .carousel-card {
+        min-width: 100%;
+    }
+    
+    .equipements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .equipement-card.large {
+        grid-column: span 1;
+        grid-template-columns: 1fr;
+    }
+    
+    .restaurant-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .reservation-wrapper,
+    .inscription-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-info {
+        position: static;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-card {
+        min-width: 100%;
+    }
+    
+    .menu-tabs {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .reservation-form-container,
+    .inscription-form-container {
+        padding: 1.5rem;
+    }
+}
+/* Styles restaurant */
+.menu-category-block {
+    display: none;
+    margin-top: 2rem;
+}
+
+.menu-category-block.active {
+    display: block;
+}
+
+.category-block-title {
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 2rem 0;
+    border-left: 4px solid var(--gold);
+    padding-left: 1rem;
+}
+
+.menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.menu-item-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item-details {
+    padding: 1.5rem;
+}
+
+.menu-item-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item-details p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.menu-item-price {
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: bold;
+    display: block;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .menu-items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Style pour la page restaurant - Version verticale comme la capture */
+.category-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 3rem 0 2rem 0;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.plat-item {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--gold-light);
+}
+
+.plat-nom {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.3rem;
+}
+
+.plat-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+}
+
+.plat-prix {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .category-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .plat-nom {
+        font-size: 1.2rem;
+    }
+    
+    .plat-description {
+        font-size: 0.9rem;
+    }
+}
+/* Style restaurant exactement comme la capture */
+.restaurant-section {
+    padding: 4rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin: 3rem 0 2rem 0;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+}
+
+.menu-content {
+    flex: 1;
+}
+
+.item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.3rem;
+}
+
+.item-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: 0.3rem;
+}
+
+.item-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .menu-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Extensions page d'accueil */
+.quick-select {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--white);
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+}
+
+.presentation,
+.activities,
+.offers,
+.testimonials,
+.location,
+.contact,
+.practical {
+    padding: 5rem 0;
+}
+
+.presentation-grid,
+.activities-grid,
+.offers-grid,
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.presentation-card,
+.activity-card,
+.offer-card,
+.testimonial-card,
+.contact-box,
+.contact-form,
+.practical-grid p {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+}
+
+.navbar.scrolled {
+    background: var(--white);
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Lang Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray);
+}
+.lang-switcher a {
+    text-decoration: none;
+    color: var(--gray);
+    transition: color 0.3s;
+}
+.lang-switcher a.active {
+    color: var(--gold);
+    text-decoration: underline;
+}
+.lang-switcher a:hover {
+    color: var(--black);
+}
+
+.activities,
+.contact {
+    background: var(--white-off);
+}
+
+.activity-card i {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.offer-tag {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.testimonial-card span {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--gray);
+}
+
+.location-grid,
+.contact-grid,
+.practical-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.location iframe {
+    width: 100%;
+    min-height: 320px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea,
+.newsletter-form input {
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    padding: 0.75rem;
+}
+
+.newsletter-form {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.footer-content {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+    .quick-select {
+        display: none;
+    }
+
+    .presentation-grid,
+    .activities-grid,
+    .offers-grid,
+    .testimonials-grid,
+    .location-grid,
+    .contact-grid,
+    .practical-grid {
+        grid-template-columns: 1fr;
+    }
+}

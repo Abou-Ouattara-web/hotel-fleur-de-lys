@@ -1,0 +1,215 @@
+/* Pages Chambres */
+
+.container {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.hero-mini {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../../images/rooms-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-mini h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Barre de Filtrage */
+.filters-bar {
+    background: var(--white);
+    padding: 2rem;
+    margin-top: -3rem; /* On fait chevaucher légèrement sur le hero pour un look moderne */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--white-off);
+}
+
+.btn-filter {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-filter:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.btn-clear {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.btn-clear:hover {
+    color: var(--black);
+}
+
+.rooms-list {
+    margin-top: 4rem;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* On réutilise les styles de cartes de l'accueil pour la cohérence */
+.room-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(212,175,55,0.2);
+}
+
+.room-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.room-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.room-desc {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.room-price {
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+}
+
+.room-price span {
+    font-size: 0.9rem;
+    color: var(--gray);
+    font-weight: 400;
+}
+
+.btn-room {
+    display: block;
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-room:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+@media (max-width: 1024px) {
+    .rooms-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-mini h1 {
+        font-size: 2.5rem;
+    }
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+}

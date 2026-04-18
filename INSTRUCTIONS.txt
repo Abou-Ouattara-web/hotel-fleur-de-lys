@@ -1,0 +1,54 @@
+=====================================================================
+     GUIDE D'INSTALLATION - HÔTEL FLEUR DE LYS (VANILLA MVC)
+=====================================================================
+
+Ce projet est une application Web PHP basée sur une architecture MVC personnalisée. 
+Pour l'exécuter correctement, veuillez suivre les étapes ci-dessous :
+
+1. PRÉREQUIS
+---------------------------------------------------------------------
+- Serveur local : XAMPP, WAMP ou MAMP.
+- PHP : Version 7.4 ou supérieure recommandée.
+- MySQL/MariaDB.
+- Apache : Le module "mod_rewrite" doit être activé (pour la gestion des URLs propres).
+
+2. PLACEMENT DES FICHIERS
+---------------------------------------------------------------------
+- Copiez le dossier intégral "HOTEL FLEUR DE LYS - Copie" dans le dossier web racine de votre serveur.
+- Pour XAMPP (Windows) : C:\xampp\htdocs\
+- Pour WAMP (Windows) : C:\wamp64\www\
+
+3. BASE DE DONNÉES
+---------------------------------------------------------------------
+- Ouvrez PHPMyAdmin (http://localhost/phpmyadmin).
+- Créez une nouvelle base de données nommée : fleur_de_lys_hotel
+- Cliquez sur l'onglet "Importer".
+- Choisissez le fichier suivant situé dans le projet :
+  👉 database/database.sql
+- Cliquez sur "Exécuter" pour importer les tables et les données par défaut.
+
+4. CONFIGURATION
+---------------------------------------------------------------------
+- Ouvrez le fichier : backend/config/database.php
+- Vérifiez que les paramètres de connexion correspondent à votre serveur local :
+  $host = 'localhost';
+  $db   = 'fleur_de_lys_hotel';
+  $user = 'root';
+  $pass = ''; // Modifiez ici si vous avez un mot de passe MySQL.
+
+5. ACCÈS AU SITE
+---------------------------------------------------------------------
+- Démarrez Apache et MySQL depuis votre panneau de contrôle (XAMPP/WAMP).
+- Ouvrez votre navigateur et accédez à :
+  👉 http://localhost/HOTEL FLEUR DE LYS - Copie/
+
+6. CRÉATION DU COMPTE ADMIN
+---------------------------------------------------------------------
+- Si vous avez besoin de créer un compte administrateur par défaut, rendez-vous sur :
+  👉 http://localhost/HOTEL FLEUR DE LYS - Copie/frontend/public/create_admin.php
+- Identifiants créés : admin@fleurdelys.com / admin123
+- IMPORTANT : Supprimez ce fichier (create_admin.php) après la création du compte.
+
+---------------------------------------------------------------------
+Développé avec soin pour l'Excellence Hôtelière.
+=====================================================================

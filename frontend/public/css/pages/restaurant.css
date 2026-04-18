@@ -1,0 +1,76 @@
+/* Restaurant */
+
+.restaurant-hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.restaurant-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+}
+
+.restaurant-intro p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.restaurant-section {
+    padding: 4rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin: 3rem 0 2rem 0;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.menu-item:last-child { border-bottom: none; }
+
+.menu-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+}
+
+.menu-content { flex: 1; }
+.item-name { font-size: 1.4rem; font-weight: 600; color: var(--black); margin-bottom: 0.3rem; }
+.item-desc { font-size: 0.95rem; color: var(--gray); margin-bottom: 0.3rem; }
+.item-price { font-size: 1.2rem; font-weight: 700; color: var(--gold); }
+
+.restaurant-reservation { padding: 4rem 0; }
+.reservation-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../images/restaurant-1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--white);
+}
+.reservation-banner h3 { font-size: 2.5rem; margin-bottom: 1rem; }
+.reservation-banner p { font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray-light); }
+
+@media (max-width: 768px) {
+    .menu-item { flex-direction: column; text-align: center; gap: 1rem; }
+    .menu-image { width: 150px; height: 150px; }
+}
+

@@ -1,0 +1,125 @@
+/* Inscription + Connexion */
+
+.inscription-section {
+    padding: 5rem 0;
+    background: var(--white-off);
+}
+
+.inscription-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+.inscription-form-container {
+    background: var(--white);
+    padding: 4rem;
+}
+
+.inscription-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.inscription-subtitle {
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.inscription-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inscription-form small {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--gray);
+}
+.login-link a { color: var(--gold); text-decoration: none; font-weight: 600; }
+.login-link a:hover { text-decoration: underline; }
+
+/* Section Image Latérale */
+.inscription-info {
+    position: relative;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('../../images/piscine-1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+}
+
+.benefits-content {
+    background: rgba(255, 255, 255, 0.1);
+     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefits-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.benefits-list { list-style: none; }
+.benefits-list li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--white);
+    font-size: 1rem;
+}
+.benefits-list i { color: var(--gold); background: var(--white); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; }
+
+/* Bouton afficher/masquer le mot de passe */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-wrapper input {
+    flex: 1;
+    padding-right: 3rem; /* espace pour le bouton */
+}
+.btn-eye {
+    position: absolute;
+    right: 0.8rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--gray);
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.btn-eye:hover { color: var(--gold); }
+
+@media (max-width: 992px) {
+    .inscription-wrapper { grid-template-columns: 1fr; max-width: 600px; }
+    .inscription-info { display: none; }
+    .inscription-form-container { padding: 2.5rem; }
+}
+
